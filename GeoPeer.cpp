@@ -1,5 +1,8 @@
 #include "GeoPeer.h"
 #include "PositionManager.h"
+#include <marble/GeoDataLabelStyle.h>
+#include <marble/GeoDataIconStyle.h>
+#include "interface.h"
 
 const GeoPeer GeoPeer::NULLPEER;
 bool success;
@@ -41,7 +44,7 @@ QString GeoPeerLoc::getIP() const {
 }
 
 bool GeoPeerLoc::isOnline() const {
-    return rsPeers->isOnline(peer_ssl_details.id);
+	return interface::get().mPeers->isOnline(peer_ssl_details.id);
 }
 
 const GeoDataCoordinates& GeoPeerLoc::getExactCoordinates() const {

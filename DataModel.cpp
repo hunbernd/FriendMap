@@ -99,7 +99,7 @@ void DataModel::addPeer(const RsPgpId& gpg_id) {
     geoPeers.emplace_back(gpg_id);
     GeoPeer* gp = &geoPeers.back();
     if (gp->isSelf()) {
-        GeoPeerLoc own_loc(rsPeers->getOwnId());
+		GeoPeerLoc own_loc(interface::get().mPeers->getOwnId());
     }
     peerTable.insert(gpg_id, gp);
     foreach (auto ssl_id, gp->getAssociatedSSLIds()) {
